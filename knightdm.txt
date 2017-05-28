@@ -1,0 +1,19 @@
+"Gamemode"
+{
+	"base"		"base"
+	"title"		"TeamDM"
+	"maps"		"^gm_"
+	"menusystem"	"1"
+	"workshopid"	""
+	"settings"
+	{
+		1
+		{
+			"name"		"ex_text"
+			"text"		"Test"
+			"help"		"Welcome to TeamDM"
+			"type"		"numeric"
+			"default"	"1"
+		}
+	}
+}
