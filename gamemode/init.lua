@@ -18,6 +18,7 @@ function GM:PlayerAuthed(ply, steamID, uniqueID)
   print("Server: Player " .. ply:Nick() .. " has been authed...")
 end
 
+-- Initial spawn
 function GM:PlayerLoadout(ply) --"The weapons/items that the player spawns with" function
 	ply:StripWeapons()
 
