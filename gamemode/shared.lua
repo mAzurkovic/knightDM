@@ -1,10 +1,7 @@
-GM.Name = "TeamDM"
+GM.Name = "Knight DM"
 GM.Author = "Mattias Zurkovic"
 GM.Email = "N/A"
 GM.Website = "N/A"
-
-playerClass = 0
-
 
 function GM:Initialize()
   self.BaseClass.Initialize(self)
