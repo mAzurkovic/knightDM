@@ -1,6 +1,17 @@
 include("shared.lua")
 
+--------------------
+--  Class Numbers --
+--------------------
+--  Archer = 1    --
+--  Knight = 2    --
+--  Heavy = 3     --
+--  Light = 4     --
+--------------------
+
 function changeClass()
+
+	print(playerClass)
 
 	local frame = vgui.Create( "DFrame" )
 	frame:SetSize( 600, 450 )
@@ -16,7 +27,8 @@ function changeClass()
 	archer:SetSize(100, 50)
 	archer:SetPos(20,50)
 	archer:SetText("Archer")
-	archer.DoClick = function() --Make the player join team 1
+	archer.DoClick = function() -- Archer class
+		playerClass = 1
 		RunConsoleCommand( "archer" )
 	end
 
@@ -24,15 +36,17 @@ function changeClass()
 	knight:SetSize(100, 50)
 	knight:SetPos(140,50)
 	knight:SetText("Knight")
-	knight.DoClick = function() --Make the player join team 1
+	knight.DoClick = function() -- Knight class
+		playerClass = 2
 		RunConsoleCommand( "knight" )
 	end
 
 	heavy = vgui.Create("DButton", frame)
 	heavy:SetSize(100, 50)
 	heavy:SetPos(260,50)
-	heavy:SetText("Knight")
-	heavy.DoClick = function() --Make the player join team 1
+	heavy:SetText("Heavy")
+	heavy.DoClick = function() -- Heavy class
+		playerClass = 3
 		RunConsoleCommand( "heavy" )
 	end
 
@@ -40,7 +54,8 @@ function changeClass()
 	light:SetSize(100, 50)
 	light:SetPos(380,50)
 	light:SetText("Light")
-	light.DoClick = function() --Make the player join team 1
+	light.DoClick = function() -- Light class
+		playerClass = 4
 		RunConsoleCommand( "light" )
 	end
 end
@@ -104,16 +119,26 @@ hook.Add( "HUDPaint", "HealthContainer", function()
 	surface.SetTextColor(Color(255, 255, 255))
 	surface.DrawText(plyHealth .. "%")
 	
-	if (LocalPlayer():Team() == 1) then
+	if (playerClass == 1) then
 		surface.SetTextPos(50, ScrH() - 125)
 		surface.SetFont("HPFont")
 		surface.SetTextColor(Color(255, 255, 255))
-		surface.DrawText("Team 1")
-	elseif (LocalPlayer():Team() == 2) then
+		surface.DrawText("Archer Class")
+	elseif (playerClass == 2) then
 		surface.SetTextPos(50, ScrH() - 125)
 		surface.SetFont("HPFont")
 		surface.SetTextColor(Color(255, 255, 255))
-		surface.DrawText("Team 2")
+		surface.DrawText("Knight Class")
+	elseif (playerClass == 3) then
+		surface.SetTextPos(50, ScrH() - 125)
+		surface.SetFont("HPFont")
+		surface.SetTextColor(Color(255, 255, 255))
+		surface.DrawText("Heavy Class")
+	elseif (playerClass == 4) then
+		surface.SetTextPos(50, ScrH() - 125)
+		surface.SetFont("HPFont")
+		surface.SetTextColor(Color(255, 255, 255))
+		surface.DrawText("Light Class")
 	end
 	
 end )
@@ -130,4 +155,5 @@ local function HUDShouldDraw(name) -- This is a local function because all funct
 		return false;      -- Return false.
 	end
 end
+
 hook.Add("HUDShouldDraw", "How to: HUD Example HUD hider", HUDShouldDraw)
