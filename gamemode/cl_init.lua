@@ -111,34 +111,44 @@ hook.Add( "HUDPaint", "HealthContainer", function()
 	surface.SetTextColor(Color(255, 255, 255))
 	surface.DrawText(LocalPlayer():Nick())
 	
-	draw.RoundedBox(5, 45, ScrH() - 180, 308, 40, Color(255, 255, 200, 250))
-	draw.RoundedBox(1, 49, ScrH() - 177, plyHealth * 3, 35, Color(255, 100, 100, 250))
+	-- Armour bar
+	draw.RoundedBox(5, 45, ScrH() - 180, 308, 40, Color(255, 255, 200, 250)) -- border
+	draw.RoundedBox(1, 49, ScrH() - 177, plyHealth * 3, 35, Color(0, 100, 210, 250)) -- main bar
+	-- Armour text
+	surface.SetTextPos(165, ScrH() - 173)
+	surface.SetFont("HPFont")
+	surface.SetTextColor(Color(255, 255, 255))
+	surface.DrawText("Armour")
 	
-	surface.SetTextPos(175, ScrH() - 173)
+	-- HEalth bar
+	draw.RoundedBox(5, 45, ScrH() - 130, 308, 40, Color(255, 255, 200, 250)) -- border
+	draw.RoundedBox(1, 49, ScrH() - 127, plyHealth * 3, 35, Color(255, 100, 100, 250)) -- main bar
+	-- Health number/percentage
+	surface.SetTextPos(175, ScrH() - 123)
 	surface.SetFont("HPFont")
 	surface.SetTextColor(Color(255, 255, 255))
 	surface.DrawText(plyHealth .. "%")
 	
 	if (playerClass == 1) then
-		surface.SetTextPos(50, ScrH() - 125)
+		surface.SetTextPos(50, ScrH() - 80)
 		surface.SetFont("HPFont")
 		surface.SetTextColor(Color(255, 255, 255))
-		surface.DrawText("Archer Class")
+		surface.DrawText("Class: Archer")
 	elseif (playerClass == 2) then
-		surface.SetTextPos(50, ScrH() - 125)
+		surface.SetTextPos(50, ScrH() - 80)
 		surface.SetFont("HPFont")
 		surface.SetTextColor(Color(255, 255, 255))
-		surface.DrawText("Knight Class")
+		surface.DrawText("Class: Knight")
 	elseif (playerClass == 3) then
-		surface.SetTextPos(50, ScrH() - 125)
+		surface.SetTextPos(50, ScrH() - 80)
 		surface.SetFont("HPFont")
 		surface.SetTextColor(Color(255, 255, 255))
-		surface.DrawText("Heavy Class")
+		surface.DrawText("Class: Heavy")
 	elseif (playerClass == 4) then
-		surface.SetTextPos(50, ScrH() - 125)
+		surface.SetTextPos(50, ScrH() - 80)
 		surface.SetFont("HPFont")
 		surface.SetTextColor(Color(255, 255, 255))
-		surface.DrawText("Light Class")
+		surface.DrawText("Class: Light")
 	end
 	
 end )
