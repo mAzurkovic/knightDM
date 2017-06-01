@@ -24,12 +24,16 @@ function GM:PlayerLoadout(ply) --"The weapons/items that the player spawns with"
 
 	if playerClass == 1 then
 		ply:Give("weapon_mor_longbow")
+		ply:SetArmor(0)
 	elseif playerClass == 2 then
 		ply:Give("dsaur_sword_iron")
+		ply:SetArmor(30)
 	elseif playerClass == 3 then
 		ply:Give("dsaur_axe_steel")
+		ply:SetArmor(50)
 	elseif playerClass == 4 then
 		ply:Give("dsaur_sword_silver")
+		ply:SetArmor(10)
 	end
 
 end
@@ -62,5 +66,4 @@ concommand.Add( "archer", archer )
 concommand.Add( "knight", knight )
 concommand.Add( "light", light )
 concommand.Add( "heavy", heavy )
-
 

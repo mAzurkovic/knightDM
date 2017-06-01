@@ -109,17 +109,24 @@ hook.Add( "HUDPaint", "HealthContainer", function()
 	surface.SetTextColor(Color(255, 255, 255))
 	surface.DrawText(LocalPlayer():Nick())
 	
-	-- Armour bar
-	
-	
-	
+	-- Armour bar	
 	draw.RoundedBox(5, 45, ScrH() - 180, 308, 40, Color(255, 255, 200, 250)) -- border
-	draw.RoundedBox(1, 49, ScrH() - 177, plyHealth * 3, 35, Color(0, 100, 210, 250)) -- main bar
+	
+	if (playerClass == 2) then
+		armourBarWidth = LocalPlayer():Armor() * 10
+		textPos = 165
+	elseif (playerClass == 3) then
+		armourBarWidth = LocalPlayer():Armor() * 6
+	elseif (playerClass == 4) then
+		armourBarWidth = LocalPlayer():Armor() * 30
+	end
+	
+	draw.RoundedBox(1, 49, ScrH() - 177, armourBarWidth, 35, Color(0, 100, 210, 250)) -- main bar
 	-- Armour text
-	surface.SetTextPos(165, ScrH() - 173)
+	surface.SetTextPos(textPos, ScrH() - 173)
 	surface.SetFont("HPFont")
 	surface.SetTextColor(Color(255, 255, 255))
-	surface.DrawText("Armour")
+	surface.DrawText(LocalPlayer():Armor() .. " Pts")
 	
 	-- Health bar
 	draw.RoundedBox(5, 45, ScrH() - 130, 308, 40, Color(255, 255, 200, 250)) -- border
