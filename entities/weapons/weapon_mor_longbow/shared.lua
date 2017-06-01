@@ -26,12 +26,12 @@ SWEP.AdminSpawnable		= true
 SWEP.ViewModel      = "models/morrowind/steel/longbow/v_steel_longbow.mdl"
 SWEP.WorldModel   = "models/morrowind/steel/longbow/w_steel_longbow.mdl"
 
-SWEP.Primary.Damage		= 40
-SWEP.Primary.Delay 		= 2
-SWEP.Primary.Velocity 		= 2000
+SWEP.Primary.Damage		= 70
+SWEP.Primary.Delay 		= 0.9
+SWEP.Primary.Velocity 		= 3000
 
 SWEP.Primary.ClipSize		= -1					// Size of a clip
-SWEP.Primary.DefaultClip	= 9					// Default number of bullets in a clip
+SWEP.Primary.DefaultClip	= 20					// Default number of bullets in a clip
 SWEP.Primary.Automatic		= true				// Automatic/Semi Auto
 SWEP.Primary.Ammo			= "XBowBolt"
 SWEP.Crosshair				= true
