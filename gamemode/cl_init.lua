@@ -98,8 +98,6 @@ surface.CreateFont( "HPFont", {
 	outline = false,
 } )
 
-print(playerClass)
-
 hook.Add( "HUDPaint", "HealthContainer", function()
 
 	local plyHealth = LocalPlayer():Health()
@@ -112,6 +110,9 @@ hook.Add( "HUDPaint", "HealthContainer", function()
 	surface.DrawText(LocalPlayer():Nick())
 	
 	-- Armour bar
+	
+	
+	
 	draw.RoundedBox(5, 45, ScrH() - 180, 308, 40, Color(255, 255, 200, 250)) -- border
 	draw.RoundedBox(1, 49, ScrH() - 177, plyHealth * 3, 35, Color(0, 100, 210, 250)) -- main bar
 	-- Armour text
@@ -120,7 +121,7 @@ hook.Add( "HUDPaint", "HealthContainer", function()
 	surface.SetTextColor(Color(255, 255, 255))
 	surface.DrawText("Armour")
 	
-	-- HEalth bar
+	-- Health bar
 	draw.RoundedBox(5, 45, ScrH() - 130, 308, 40, Color(255, 255, 200, 250)) -- border
 	draw.RoundedBox(1, 49, ScrH() - 127, plyHealth * 3, 35, Color(255, 100, 100, 250)) -- main bar
 	-- Health number/percentage
@@ -129,6 +130,7 @@ hook.Add( "HUDPaint", "HealthContainer", function()
 	surface.SetTextColor(Color(255, 255, 255))
 	surface.DrawText(plyHealth .. "%")
 	
+	-- For HUD, show users class
 	if (playerClass == 1) then
 		surface.SetTextPos(50, ScrH() - 80)
 		surface.SetFont("HPFont")

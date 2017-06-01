@@ -23,13 +23,13 @@ function GM:PlayerLoadout(ply) --"The weapons/items that the player spawns with"
 	ply:StripWeapons()
 
 	if playerClass == 1 then
-		ply:Give("weapon_smg1")
+		ply:Give("weapon_mor_longbow")
 	elseif playerClass == 2 then
-		ply:Give("weapon_pistol")
+		ply:Give("dsaur_sword_iron")
 	elseif playerClass == 3 then
-		ply:Give("weapon_crossbow")
+		ply:Give("dsaur_axe_steel")
 	elseif playerClass == 4 then
-		ply:Give("weapon_357")
+		ply:Give("dsaur_sword_silver")
 	end
 
 end
